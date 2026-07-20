@@ -25,7 +25,7 @@ const DateCounter = () => {
   date.setDate(date.getDate() + count);
 
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col mt-8">
       <ToggleButton isOpen={isOpen} onToggle={toggleOpen} />
 
       {isOpen && (

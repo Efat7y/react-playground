@@ -21,7 +21,7 @@ const Steps = () => {
   }
 
   return (
-    <div className="mt-5 h-[320px]">
+    <div className="mt-5 h-[320px] mt-8">
       <ToggleButton isOpen={isOpen} onToggle={toggleOpen} />
 
       {isOpen && (

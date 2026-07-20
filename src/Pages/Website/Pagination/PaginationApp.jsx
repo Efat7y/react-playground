@@ -40,7 +40,7 @@ const PaginationApp = () => {
   const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col mt-8">
       <ToggleButton isOpen={isOpen} onToggle={toggleOpen} />
 
       {isOpen && (
