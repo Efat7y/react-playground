@@ -6,7 +6,7 @@ import { btnStyle } from "../../../styles";
 
 const Steps = () => {
   const [step, setStep] = useState(1);
-  const [isOpen, toggleOpen] = useToggle(true);
+  const { value: isOpen, toggle: toggleOpen } = useToggle(true);
 
   const messages = [
     "Learn React ⚛️",

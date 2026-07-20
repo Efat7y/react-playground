@@ -6,7 +6,7 @@ import Counter from "./Counter";
 const DateCounter = () => {
   const [stepsDate, setStepsDate] = useState(1);
   const [count, setCount] = useState(0);
-  const [isOpen, toggleOpen] = useToggle(true);
+  const { value: isOpen, toggle: toggleOpen } = useToggle(true);
 
   function decreaseStep() {
     setStepsDate((s) => s - 1);
