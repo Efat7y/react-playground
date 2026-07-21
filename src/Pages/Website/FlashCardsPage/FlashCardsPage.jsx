@@ -1,7 +1,18 @@
-import FlashCards from "@/Components/FlashCards/FlashCards";
+import FlashCards from "@/Pages/Website/FlashCardsPage/components/FlashCards";
+import { flashCards } from "@/Data/Data";
+import { useState } from "react";
 
-const FlashCardsPage = () => {
-  return <FlashCards />;
+const FlashCardApp = () => {
+  const [selected, setSelected] = useState(null);
+  return (
+    <div>
+      <FlashCards
+        cards={flashCards}
+        selected={selected}
+        setSelected={setSelected}
+      />
+    </div>
+  );
 };
 
-export default FlashCardsPage;
+export default FlashCardApp;
