@@ -8,7 +8,9 @@ const Counter = ({ value, handleMinus, handlePlus, onChange }) => {
         <input
           type="number"
           value={value}
-          onChange={(e) => onChange(Number(e.target.value))}
+          onChange={(e) =>
+            onChange(e.target.value === "" ? "" : Number(e.target.value))
+          }
           className="mt-2 flex justify-center  rounded border-2 border-gray-300 p-1 text-center"
         />
       </div>

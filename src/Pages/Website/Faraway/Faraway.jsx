@@ -8,6 +8,19 @@ import { initialItems } from "@/Data/Data";
 
 const Faraway = () => {
   const [items, setItems] = useState(initialItems);
+
+  const [sortBy, setSortBy] = useState("input");
+  let sortedItems;
+  if (sortBy === "input") sortedItems = items;
+  if (sortBy === "description")
+    sortedItems = items
+      .slice()
+      .sort((a, b) => a.description.localeCompare(b.description));
+  if (sortBy === "packed")
+    sortedItems = items
+      .slice()
+      .sort((a, b) => Number(a.packed) - Number(b.packed));
+
   function handleAddItem(newItem) {
     setItems((items) => [...items, newItem]);
   }
@@ -27,15 +40,21 @@ const Faraway = () => {
     );
   }
   return (
-    <div className="min-h-screen  bg-[#5c3d2e]">
+    <div className="min-h-screen flex flex-col bg-[#5c3d2e]">
       <Header />
       <Form onAddItem={handleAddItem} />
       <PackingList
         items={items}
+        items={sortedItems}
         onDeleteItem={handleDeleteItem}
         onTogglePacked={handleTogglePacked}
       />
-      <Actions items={items} setItems={setItems} />
+      <Actions
+        items={items}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        setItems={setItems}
+      />
       <Footer items={items} />
     </div>
   );

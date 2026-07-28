@@ -5,7 +5,7 @@ import Counter from "./Counter";
 
 const DateCounter = () => {
   const [stepsDate, setStepsDate] = useState(1);
-  const [count, setCount] = useState("");
+  const [count, setCount] = useState("0");
   const { value: isOpen, toggle: toggleOpen } = useToggle(true);
 
   function decreaseCount() {
@@ -14,9 +14,9 @@ const DateCounter = () => {
   function increaseCount() {
     setCount((c) => c + stepsDate);
   }
-  const handelDate = () => {
+  const handelReset = () => {
     setStepsDate(1);
-    setCount("");
+    setCount(0);
   };
   const date = new Date();
   date.setDate(date.getDate() + count);
@@ -61,12 +61,14 @@ const DateCounter = () => {
                 {date.toDateString()}
               </span>
             </p>
-            <button
-              className="rounded  bg-violet-600 px-3 py-1 text-2xl mt-4 font-semibold text-white transition hover:bg-violet-700"
-              onClick={handelDate}
-            >
-              Reset
-            </button>
+            {count !== 0 || stepsDate !== 1 ? (
+              <button
+                className="rounded  bg-violet-600 px-3 py-1 text-2xl mt-4 font-semibold text-white transition hover:bg-violet-700"
+                onClick={handelReset}
+              >
+                Reset
+              </button>
+            ) : null}
           </div>
         </div>
       )}

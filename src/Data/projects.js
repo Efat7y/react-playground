@@ -7,4 +7,7 @@ export const projects = [
   { id: 5, title: "Flash Cards", path: "/flash-cards" },
   { id: 6, title: "Accordion", path: "/accordion" },
   { id: 7, title: "Eat-N-Split", path: "/eat-n-split" },
+  { id: 8, title: "Card", path: "/card" },
+  { id: 9, title: "Tip Calculator", path: "/tip-calculator" },
+  { id: 9, title: "UsePopcorn", path: "/use-popcorn-app" },
 ];
