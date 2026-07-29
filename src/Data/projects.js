@@ -9,5 +9,5 @@ export const projects = [
   { id: 7, title: "Eat-N-Split", path: "/eat-n-split" },
   { id: 8, title: "Card", path: "/card" },
   { id: 9, title: "Tip Calculator", path: "/tip-calculator" },
-  { id: 9, title: "UsePopcorn", path: "/use-popcorn-app" },
+  { id: 10, title: "UsePopcorn", path: "/use-popcorn-app" },
 ];

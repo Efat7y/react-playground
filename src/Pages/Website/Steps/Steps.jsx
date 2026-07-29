@@ -3,10 +3,12 @@ import useToggle from "../../../Hooks/useToggle";
 import ToggleButton from "../ToggleButton";
 import Step from "./Step";
 import { btnStyle } from "../../../styles";
+import StarRaing from "../StarRating";
 
 const Steps = () => {
   const [step, setStep] = useState(1);
   const { value: isOpen, toggle: toggleOpen } = useToggle(true);
+  const [projctRating, setProjctRating] = useState(0);
 
   const messages = [
     "Learn React ⚛️",
@@ -31,11 +33,9 @@ const Steps = () => {
               <Step key={index} number={index + 1} active={step >= index + 1} />
             ))}
           </div>
-
           <h2 className="mt-12 text-center text-3xl font-bold">
             Step {step}:{messages[step - 1]}
           </h2>
-
           <div className="mt-12 flex justify-between">
             <button
               onClick={handlePreviuos}
@@ -44,14 +44,39 @@ const Steps = () => {
             >
               Previous
             </button>
-
             <button
               onClick={handleNext}
               disabled={step === 3}
               className={btnStyle}
             >
               Next
-            </button>
+            </button>{" "}
+          </div>
+          <div className="my-4 shadow-2xl p-4 w-100    rounded">
+            <StarRaing
+              maxRating={10}
+              onSetRating={setProjctRating}
+              size={20}
+              color="#7008e7"
+              messages={[
+                "😖 Terrible",
+                "😕 Very Bad",
+                "🙁 Bad",
+                "😐 Poor",
+                "🙂 Average",
+                "😊 Good",
+                "😄 Very Good",
+                "🤩 Great",
+                "🔥 Excellent",
+                "🏆 Masterpiece",
+              ]}
+            />
+            <p>⭐ How would you rate this project?</p>
+            <span>
+              Your Rating: <strong>{projctRating} / 10</strong>
+            </span>
+
+            <p>Thank you for your feedback ❤️</p>
           </div>
         </div>
       )}
